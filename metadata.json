@@ -1,0 +1,8 @@
+{
+  "name": "6_Remix dnd-chronicle-weaver",
+  "description": "App per master D&D 5e con Chat AI Lore Forgotten Realms",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

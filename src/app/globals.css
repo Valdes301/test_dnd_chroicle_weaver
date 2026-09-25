@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Caricamento font tramite Google Fonts standard per bypassare il build-time download di Next.js */
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,700;1,7..72,400;1,7..72,700&family=Belleza&family=Great+Vibes&family=Dancing+Script:wght@400;700&family=Alex+Brush&family=Cinzel:wght@400;700&family=Pirata+One&family=Special+Elite&family=Fondamento&family=MedievalSharp&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Uncial+Antiqua&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 15% 15%;
+    --foreground: 220 15% 85%;
+    --card: 220 15% 20%;
+    --card-foreground: 220 15% 85%;
+    --popover: 220 15% 15%;
+    --popover-foreground: 220 15% 85%;
+    --primary: 200 90% 50%;
+    --primary-foreground: 200 15% 10%;
+    --secondary: 220 15% 25%;
+    --secondary-foreground: 220 15% 95%;
+    --muted: 220 15% 25%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 170 80% 40%;
+    --accent-foreground: 170 15% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 30%;
+    --input: 220 15% 30%;
+    --ring: 200 90% 50%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --sidebar-background: 220 15% 10%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 200 90% 50%;
+    --sidebar-primary-foreground: 200 15% 10%;
+    --sidebar-accent: 220 15% 25%;
+    --sidebar-accent-foreground: 220 15% 95%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 200 90% 50%;
+
+    /* Variabili font caricate tramite @import */
+    --font-literata: 'Literata', serif;
+    --font-belleza: 'Belleza', sans-serif;
+    --font-calligraphy: 'Great Vibes', cursive;
+    --font-handwriting: 'Dancing Script', cursive;
+    --font-alex: 'Alex Brush', cursive;
+    --font-cinzel: 'Cinzel', serif;
+    --font-pirata: 'Pirata One', cursive;
+    --font-special: 'Special Elite', cursive;
+    --font-fondamento: 'Fondamento', cursive;
+    --font-medieval-sharp: 'MedievalSharp', cursive;
+    --font-playfair: 'Playfair Display', serif;
+    --font-uncial: 'Uncial Antiqua', serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Ottimizzazione performance per liste lunghe (virtual/off-screen rendering) */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 120px;
+}
+
+/* --- FIX INTERAZIONE MOBILE --- */
+
+/* Forza la visibilità del tasto chiusura della Sidebar su mobile */
+[data-sidebar="sidebar"][data-mobile="true"] > button {
+  display: flex !important;
+  opacity: 1 !important;
+  color: white !important;
+  background: rgba(0,0,0,0.2) !important;
+  border-radius: 50% !important;
+  right: 1rem !important;
+  top: 1rem !important;
+  z-index: 100 !important;
+}
+
+/* Assicura che il contenuto della sidebar sia sempre scrollabile */
+[data-sidebar="content"] {
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Nasconde scrollbar su modalità icona (desktop) ma la lascia su mobile */
+[data-collapsible="icon"]:not([data-mobile="true"]) [data-sidebar="content"]::-webkit-scrollbar {
+  display: none;
+}
+
+.font-body { font-family: var(--font-literata), serif; }
+.font-headline { font-family: var(--font-belleza), sans-serif; }
+.font-calligraphy { font-family: var(--font-calligraphy), cursive; }
+.font-handwriting { font-family: var(--font-handwriting), cursive; }
+.font-alex { font-family: var(--font-alex), cursive; }
+.font-authority { font-family: var(--font-cinzel), serif; }
+.font-gothic { font-family: var(--font-pirata), cursive; }
+.font-messy { font-family: var(--font-special), cursive; }
+.font-scholarly { font-family: var(--font-fondamento), cursive; }
+.font-sharp { font-family: var(--font-medieval-sharp), cursive; }
+.font-noble { font-family: var(--font-playfair), serif; }
+.font-ancient { font-family: var(--font-uncial), serif; }

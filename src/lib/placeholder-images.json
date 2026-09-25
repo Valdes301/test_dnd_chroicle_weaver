@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Epic cinematic D&D fantasy background with ancient stone archives, warm torches, and mystical arcane atmosphere.",
+      "imageUrl": "/hero-dnd-bg.jpg",
+      "imageHint": "dnd fantasy tavern archive"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+diff --git a/node_modules/@genkit-ai/next/lib/index.js b/node_modules/@genkit-ai/next/lib/index.js
+index 99d8d179603f9f9d7890a599187382d56a64b977..b8a33ad3c5097435f33345472877a76e9e623b3e 100644
+--- a/node_modules/@genkit-ai/next/lib/index.js
++++ b/node_modules/@genkit-ai/next/lib/index.js
+@@ -46,6 +46,10 @@
+                 res.status(405).json({ error: 'Method not allowed.' });
+                 return;
+             }
++            if (typeof req.json !== 'function') {
++                // Next.js config is being probed.
++                return;
++            }
+             const { data: input } = await req.json();
+             const { flow, ...rest } = input;
+             if (!flow) {
